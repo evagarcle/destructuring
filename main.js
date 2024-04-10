@@ -4,16 +4,16 @@ const empleados = [
   { name: "Luis", email: "Luis@gmail.com" },
   { name: "Ana", email: "Ana@gmail.com" },
   { name: "Andrea", email: "Andrea@gmail.com" },
-];
+]
 
 // Primera parte
 const [,empleadaAna] = empleados
-console.log(empleadaAna);
+console.log(empleadaAna)
 
 // Segunda parte
 const [empleadoLuis] = empleados
 const {email} = empleadoLuis
-console.log(email);
+console.log(email)
 
 
 // EJERCICIO 2
@@ -38,7 +38,7 @@ const pokemon = {
 
 // Primera parte
 const {name:nombre} = pokemon
-console.log(nombre);
+console.log(nombre)
 
 // Segunda parte
 const {name} = pokemon
@@ -50,7 +50,7 @@ console.log(type)
 // Cuarta parte
 const {moves} = pokemon
 const [,selectedMove] = moves
-console.log(selectedMove);
+console.log(selectedMove)
 
 
 // EJERCICIOS SPREAD/REST
@@ -79,7 +79,7 @@ console.log(twoPokemonObject)
 
 // Ejercicio 2
 function sumEveryOther(...todosLosValores) {
-  return todosLosValores.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
+  return todosLosValores.reduce((previousValue, currentValue) => previousValue + currentValue, 0)
 }
 
 console.log(sumEveryOther(4,4,4))
@@ -98,13 +98,13 @@ let suma = 0
 function addOnlyNums(...todosLosParametros) {
   for (let parametro of todosLosParametros) {
       if (typeof parametro === 'number') {
-          suma += parametro;
+          suma += parametro
       }
   }
-  return suma;
+  return suma
 }
 
-console.log(addOnlyNums(2, 3, 'paco', 3));
+console.log(addOnlyNums(2, 3, 'paco', 3))
 
 
 // EJERCICIO 4
@@ -127,3 +127,62 @@ function combineTwoArrays (arr1, arr2) {
 
 
 console.log(combineTwoArrays(['pepe', true, 56],['sara', 32, false]))
+
+
+
+
+// EJERCICIOS EXTRA -----------------------------------------------------------
+const HIGH_TEMPERATURES = {
+  yesterday: 30,
+  today: 35,
+  tomorrow: 32,
+}
+
+
+const {today} = HIGH_TEMPERATURES
+const maximaHoy = today
+console.log(maximaHoy)
+
+const {tomorrow} = HIGH_TEMPERATURES
+const maximaManana = tomorrow
+console.log(maximaManana)
+
+// ------------------------------------------------------
+
+function onlyUniques(...anyArguments) {
+ 
+  const uniqueValues = new Set(anyArguments)  /* Elimina los duplicados automatically*/
+  
+  return [...uniqueValues]
+}
+/* Convertimos el objeto Set uniqueValues de nuevo en un array para que así la función debe devolver un array como resultado.*/
+
+console.log(onlyUniques('pepe', 'juana', 'mariposa', 'juana', 'pepe', 'sandia'))
+
+// ----------------------------------------------------------
+
+let arrayConcat = []
+
+function combineAllArrays (...anyArrayNumber) {
+  for (let eachArray of anyArrayNumber) {
+    arrayConcat = arrayConcat.concat(eachArray)
+  }
+  return arrayConcat
+}
+
+console.log(combineAllArrays(['pedro', 'juanjo'], [1,2], [true, false]))
+
+// ------------------------------------------------------------
+
+let sumaCuadrados = 0
+let cuadrados = 0
+
+function sumAndSquare (...allArguments) {
+  for (eachArr of allArguments) {
+    cuadrados = eachArr * eachArr
+    sumaCuadrados += cuadrados
+  }
+  return sumaCuadrados
+}
+
+console.log(sumAndSquare(2,3));
